@@ -1,7 +1,7 @@
 {
-  "name": "recaptcha",
-  "version": "1.0.0",
-  "description": "Recaptcha server",
+  "name": "invisible-recaptcha-validator",
+  "version": "1.0.1",
+  "description": "Invisible reCAPTCHA Validation Server",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
