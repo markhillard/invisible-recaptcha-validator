@@ -1,8 +1,8 @@
 // modules
-const express = require('express'),
-  bodyParser = require('body-parser'),
-  request = require('request'),
-  app = express()
+const express = require('express')
+const bodyParser = require('body-parser')
+const request = require('request')
+const app = express()
 
 // headers
 app.use(
@@ -23,8 +23,9 @@ app.use(function(req, res, next) {
 })
 
 // root
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
   res.send('Invisible reCAPTCHA Validation Server')
+  res.sendStatus(200)
 })
 
 // process recaptcha
@@ -71,5 +72,5 @@ let port = process.env.PORT || 4000
 
 // listen for connections
 app.listen(port, function() {
-  console.log('Listening on port ' + port)
+  console.log(`Listening on port ${port}`)
 })
