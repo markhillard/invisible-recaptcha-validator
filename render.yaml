@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: invisible-recaptcha-validator
+    env: node
+    plan: free
+    region: ohio
+    repo: https://github.com/markhillard/invisible-recaptcha-validator.git
+    branch: master
+    buildCommand: yarn
+    startCommand: yarn start
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        sync: false
+      - key: RECAPTCHA_SECRET
+        sync: false
