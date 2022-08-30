@@ -4,6 +4,10 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
+// environment variables
+const secretKey = process.env.RECAPTCHA_SECRET
+let port = process.env.PORT || 4000
+
 // headers
 app.use(
   bodyParser.urlencoded({
@@ -13,7 +17,7 @@ app.use(
 
 app.use(bodyParser.json())
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header(
     'Access-Control-Allow-Headers',
@@ -24,7 +28,6 @@ app.use(function(req, res, next) {
 
 // root
 app.get('/', (req, res) => {
-  res.send('Invisible reCAPTCHA Validation Server')
   res.sendStatus(200)
 })
 
@@ -40,9 +43,6 @@ app.post('/', (req, res) => {
       msg: 'reCAPTCHA not defined'
     })
   }
-
-  // heroku config variable
-  const secretKey = process.env.RECAPTCHA_SECRET
 
   // verification url
   const verifyUrl = `https://google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${req.body.captcha}&remoteip=${req.connection.remoteAddress}`
@@ -67,10 +67,7 @@ app.post('/', (req, res) => {
   })
 })
 
-// port
-let port = process.env.PORT || 4000
-
 // listen for connections
-app.listen(port, function() {
+app.listen(port, function () {
   console.log(`Listening on port ${port}`)
 })
