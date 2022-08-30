@@ -7,7 +7,7 @@ services:
     repo: https://github.com/markhillard/invisible-recaptcha-validator.git
     branch: master
     buildCommand: yarn
-    startCommand: yarn start
+    startCommand: node server.js
     healthCheckPath: /
     envVars:
       - key: PORT
