@@ -33,11 +33,7 @@ app.get('/', (req, res) => {
 
 // process recaptcha
 app.post('/', (req, res) => {
-  if (
-    req.body.captcha === undefined ||
-    req.body.captcha === '' ||
-    req.body.captcha === null
-  ) {
+  if (req.body.captcha === undefined || req.body.captcha === '' || req.body.captcha === null) {
     return res.json({
       success: false,
       msg: 'reCAPTCHA not defined'
