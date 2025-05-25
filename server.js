@@ -1,8 +1,8 @@
 // modules
-import axios from "axios";
-import express from "express";
-const bodyParser = require('body-parser')
-const app = express()
+const axios = require("axios");
+const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
 
 // environment variables
 const secretKey = process.env.RECAPTCHA_SECRET;
@@ -42,15 +42,15 @@ app.post("/", async (req, res) => {
             msg: "reCAPTCHA not defined",
         });
     }
-    
+
     try {
         // verification url
         const verifyUrl = `https://google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${req.body.captcha}&remoteip=${req.socket.remoteAddress}`;
-        
+
         // make request
         const response = await axios.get(verifyUrl);
         const data = response.data;
-        
+
         // failure
         if (data.success !== undefined && !data.success) {
             return res.json({
@@ -58,7 +58,7 @@ app.post("/", async (req, res) => {
                 msg: "reCAPTCHA failed",
             });
         }
-        
+
         // success
         return res.json({
             success: true,
