@@ -1,8 +1,8 @@
 // modules
 import axios from "axios";
-import { json, urlencoded } from "body-parser";
 import express from "express";
-const app = express();
+const bodyParser = require('body-parser')
+const app = express()
 
 // environment variables
 const secretKey = process.env.RECAPTCHA_SECRET;
@@ -15,8 +15,8 @@ app.use(
     }),
 );
 
-app.use(json());
-app.use((req, res, next) => {
+app.use(bodyParser.json());
+app.use((res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header(
         "Access-Control-Allow-Headers",
@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 });
 
 // root
-app.get("/", (req, res) => {
+app.get("/", (res) => {
     res.sendStatus(200);
 });
 
@@ -42,7 +42,7 @@ app.post("/", async (req, res) => {
             msg: "reCAPTCHA not defined",
         });
     }
-
+    
     try {
         // verification url
         const verifyUrl = `https://google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${req.body.captcha}&remoteip=${req.socket.remoteAddress}`;
