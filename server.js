@@ -6,7 +6,7 @@ const app = express();
 
 // environment variables
 const secretKey = process.env.RECAPTCHA_SECRET;
-const port = process.env.PORT || 4000;
+let port = process.env.PORT || 4000;
 
 // headers
 app.use(
@@ -16,7 +16,7 @@ app.use(
 );
 
 app.use(bodyParser.json());
-app.use((res, next) => {
+app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header(
         "Access-Control-Allow-Headers",
@@ -26,7 +26,7 @@ app.use((res, next) => {
 });
 
 // root
-app.get("/", (res) => {
+app.get("/", (req, res) => {
     res.sendStatus(200);
 });
 
