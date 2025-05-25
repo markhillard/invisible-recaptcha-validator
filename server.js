@@ -10,7 +10,7 @@ const port = process.env.PORT || 4000;
 
 // headers
 app.use(
-    urlencoded({
+    bodyParser.urlencoded({
         extended: false,
     }),
 );
