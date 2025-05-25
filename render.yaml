@@ -1,7 +1,7 @@
 services:
   - type: web
     name: invisible-recaptcha-validator
-    env: node
+    runtime: node
     plan: starter
     region: ohio
     repo: https://github.com/markhillard/invisible-recaptcha-validator.git
