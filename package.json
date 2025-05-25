@@ -1,4 +1,22 @@
 {
-  "name": "invisible-recaptcha-validator",
-  "packageManager": "yarn@4.9.1"
+    "name": "invisible-recaptcha-validator",
+    "description": "Invisible reCAPTCHA Validation Server",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/markhillard/invisible-recaptcha-validator.git"
+    },
+    "main": "server.js",
+    "version": "1.1.0",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "axios": "^1.6.2",
+        "body-parser": "^2.2.0",
+        "express": "^5.1.0"
+    },
+    "engines": {
+        "node": "^22.16.0"
+    }
 }
