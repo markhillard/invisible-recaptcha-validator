@@ -1,22 +1,22 @@
 {
-  "name": "invisible-recaptcha-validator",
-  "description": "Invisible reCAPTCHA Validation Server",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/markhillard/invisible-recaptcha-validator.git"
-  },
-  "main": "server.js",
-  "version": "1.0.1",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "body-parser": "^1.20.2",
-    "express": "^4.18.2",
-    "request": "^2.88.2"
-  },
-  "engines": {
-    "node": "^18.18.2"
-  }
+    "name": "invisible-recaptcha-validator",
+    "description": "Invisible reCAPTCHA Validation Server",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/markhillard/invisible-recaptcha-validator.git"
+    },
+    "main": "server.js",
+    "version": "1.0.1",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "axios": "^1.6.2",
+        "body-parser": "^2.2.0",
+        "express": "^5.1.0"
+    },
+    "engines": {
+        "node": "^22.14.0"
+    }
 }
