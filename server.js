@@ -6,7 +6,7 @@ const app = express();
 
 // environment variables
 const secretKey = process.env.RECAPTCHA_SECRET;
-let port = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 
 // headers
 app.use(
